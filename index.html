@@ -6,6 +6,43 @@
     <meta name="description" content="PKOffice - Willi Buffen's Personal Empire">
     <title>Willi Buffen - The CEO of PKOffice</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,8 +56,26 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            <button id="loginBtn">Login</button>
         </div>
     </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <section id="hero">
         <div class="container">
@@ -69,7 +124,7 @@
                 </div>
                 <div class="gallery-item">
                     <img src="willi with team.png" alt="Willi Buffen on Stage">
-                    <p>Willi with his best friends (because he wants there money).</p>
+                    <p>Willi with his best friends (because he wants their money).</p>
                 </div>
                 <div class="gallery-item">
                     <img src="willi con.png" alt="Willi Buffen Office Shot">
@@ -79,24 +134,20 @@
         </div>
     </section>
     
-
     <section id="contact">
-    <div class="container">
-        <h2>Contact Me</h2>
-        <form id="contactForm" action="https://formspree.io/f/xkgwlobb" method="POST">
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form id="contactForm" action="https://formspree.io/f/xkgwlobb" method="POST">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
 
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" required></textarea>
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" required></textarea>
 
-            <button type="submit">Send</button>
-        </form>
-    </div>
-</section>
-
-    
-    
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
@@ -104,6 +155,77 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Smooth scroll to section
+        function scrollToSection(id) {
+            document.querySelector(id).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Modal functionality
+        const modal = document.getElementById("loginModal");
+        const btn = document.getElementById("loginBtn");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Set your fixed credentials here
+            const validUsername = 'admin'; // Replace with your username
+            const validPassword = 'password123'; // Replace with your password
+
+            // Check credentials
+            if (username === validUsername && password === validPassword) {
+                alert('Login successful!');
+                modal.style.display = 'none';
+                // Optionally, you could redirect or reveal the main content here
+            } else {
+                alert('Invalid username or password!');
+            }
+        });
+
+        // Contact form submission logic
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const form = e.target;
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Your message has been sent successfully!');
+                    form.reset(); // Reset the form after successful submission
+                } else {
+                    alert('Oops! There was a problem with your submission.');
+                }
+            }).catch(error => {
+                alert('Oops! There was an error connecting to the server.');
+            });
+        });
+    </script>
 </body>
 </html>
