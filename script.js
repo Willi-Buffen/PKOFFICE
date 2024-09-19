@@ -38,3 +38,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         alert('Invalid username or password!');
     }
 });
+
+// Show the login modal on page load
+window.onload = function() {
+    modal.style.display = "block";
+};
