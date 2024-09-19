@@ -23,8 +23,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const password = document.getElementById('password').value;
 
     // Set your fixed credentials here
-    const validUsername = 'Willi'; // Replace with your username
-    const validPassword = 'WilliBuffen123'; // Replace with your password
+    const validUsername = 'V2lsbGk='; 
+    const validPassword = 'V2lsbG9vQmVmZW4xMjM='; 
 
     // Check credentials
     if (username === validUsername && password === validPassword) {
