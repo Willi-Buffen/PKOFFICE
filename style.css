@@ -70,54 +70,69 @@ nav ul li a {
     cursor: pointer;
 }
 
-#services {
+/* About Section */
+#about {
     padding: 50px 20px;
     background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#services h2 {
+#about h2 {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.service-grid {
+.about-content {
     display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 
-.service {
-    background-color: #f4f4f4;
-    padding: 20px;
-    text-align: center;
-    flex-basis: 30%;
+.profile-pic {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 30px;
 }
 
-#about, #contact {
+#vision {
     padding: 50px 20px;
     background-color: #e9ecef;
-}
-
-#contactForm {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#contactForm label {
-    margin: 10px 0 5px;
-}
-
-#contactForm input, #contactForm textarea {
-    padding: 10px;
-    font-size: 1em;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-footer {
-    background-color: #ff9100;
-    color: white;
     text-align: center;
-    padding: 20px;
 }
+
+/* Gallery Section */
+#gallery {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds uniform space between items */
+}
+
+.gallery-item {
+    width: 220px; /* Fixed width for each gallery item */
+    text-align: center; /* Center the image and text */
+    margin-bottom: 20px; /* Add space below each item */
+}
+
+.gallery-item img {
+    width: 100%; /* Image takes full width of its container */
+    height: auto;
+    object-fit: cover;
+}
+
+.gallery-item p {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+
