@@ -1,43 +1,39 @@
-// Modal functionality
+
 const modal = document.getElementById("loginModal");
 const span = document.getElementsByClassName("close")[0];
-const mainContent = document.getElementById("mainContent"); // Reference to main content
+const mainContent = document.getElementById("mainContent"); 
 
-// Close modal when the user clicks on <span> (x)
+
 span.onclick = function() {
     modal.style.display = "none";
 }
 
-// Close modal when the user clicks anywhere outside of the modal
+
 window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
 }
 
-// Handle login form submission
+
+const validUsername = atob('V2lsbGk='); '
+const validPassword = atob('V2lsbG9vQmVmZW4xMjM='); 
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Set your fixed credentials here
-    const validUsername = 'V2lsbGk='; 
-    const validPassword = 'V2lsbG9vQmVmZW4xMjM='; 
-
-    // Check credentials
     if (username === validUsername && password === validPassword) {
         alert('Login successful!');
-        modal.style.display = 'none'; // Hide modal
-        mainContent.style.display = 'block'; // Show the main content
+        modal.style.display = 'none'; 
+        mainContent.style.display = 'block'; 
     } else {
         alert('Invalid username or password!');
     }
 });
 
-// Show the login modal on page load
 window.onload = function() {
-    modal.style.display = "block"; // Show modal when the page loads
+    modal.style.display = "block"; 
 };
-
