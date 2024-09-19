@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OKOffice - Office Supplies and Services">
+    <title>PKOffice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to PKOffice</h1>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Your One-Stop Solution for Office Supplies</h2>
+            <p>Providing top-quality office supplies and services tailored to your needs.</p>
+            <button onclick="scrollToSection('#contact')">Contact Us</button>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service">
+                    <h3>Office Supplies</h3>
+                    <p>From paper to printers, we have everything your office needs to function smoothly.</p>
+                </div>
+                <div class="service">
+                    <h3>Furniture Solutions</h3>
+                    <p>Modern and ergonomic office furniture tailored to your workspace.</p>
+                </div>
+                <div class="service">
+                    <h3>Consulting</h3>
+                    <p>Need advice on office optimization? Let our experts help you create an efficient space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About OKOffice</h2>
+            <p>PKOffice has been serving businesses for over 20 years. We are passionate about helping our clients create organized, efficient, and comfortable work environments.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PKOffice. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
