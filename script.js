@@ -26,7 +26,12 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
 
-
+// Debugging output (optional)
+    console.log(`Entered Username: ${username}`);
+    console.log(`Entered Password: ${password}`);
+    console.log(`Expected Username: ${validUsername}`);
+    console.log(`Expected Password: ${validPassword}`);
+    
     // Check credentials (case-sensitive)
     if (username === validUsername && password === validPassword) {
         alert('Login successful!');
