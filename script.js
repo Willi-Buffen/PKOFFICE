@@ -17,7 +17,7 @@ window.onclick = function(event) {
 
 // Use Base64 to obfuscate valid credentials
 const validUsername = atob('V2lsbGk='); 
-const validPassword = atob('V2lsbG9vQmVmZW4xMjM='); 
+const validPassword = atob('V2lsbGxpQnVmZmVuMTIz'); 
 
 // Handle login form submission
 document.getElementById('loginForm').addEventListener('submit', function(e) {
@@ -26,11 +26,6 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    // Debugging logs to check input and decoded values
-    console.log('Entered Username:', username);
-    console.log('Entered Password:', password);
-    console.log('Expected Username:', validUsername);
-    console.log('Expected Password:', validPassword);
 
     // Check credentials (case-sensitive)
     if (username === validUsername && password === validPassword) {
