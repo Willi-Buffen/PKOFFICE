@@ -21,7 +21,7 @@ const validPassword = atob('V2lsbG9vQmVmZW4xMjM='); // Base64 for 'WilliBuffen12
 
 // Handle login form submission
 document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); // Prevent form from reloading the page
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
